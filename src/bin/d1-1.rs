@@ -1,21 +1,12 @@
-#![allow(unused_imports)]
-
 use nom::{
-    bytes::complete::{tag, take_while1, take_while_m_n},
-    character::{
-        complete::{digit1, i32, multispace0, multispace1},
-        is_digit,
-    },
-    combinator::map_res,
-    error::ParseError,
-    sequence::{delimited, separated_pair, tuple},
-    IResult, Parser,
+    character::complete::{i32, multispace0, multispace1},
+    sequence::{delimited, separated_pair},
+    IResult,
 };
 use std::cmp::Reverse;
 use std::collections::BinaryHeap;
 use std::fs::File;
 use std::io::{self, BufRead};
-use std::num::ParseIntError;
 use std::path::Path;
 
 fn row_parser(input: &str) -> IResult<&str, (i32, i32)> {
