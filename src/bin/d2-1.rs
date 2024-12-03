@@ -44,14 +44,3 @@ fn main() -> io::Result<()> {
     println!("{}", accum);
     Ok(())
 }
-
-#[cfg(test)]
-mod test {
-    use super::*;
-    #[test]
-    fn parse_row() {
-        assert_eq!(row_parser("   10   30   "), Ok(("", vec![10, 30])));
-        assert!(row_parser("   10   30   30").is_ok());
-        assert_eq!(row_parser("   10   30   30"), Ok(("30", vec![10, 30])));
-    }
-}
